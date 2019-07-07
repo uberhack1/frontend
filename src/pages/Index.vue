@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
+    <pessoas-proximas></pessoas-proximas>
   </q-page>
 </template>
 
@@ -8,7 +8,10 @@
 </style>
 
 <script>
+import PessoasProximas from '../components/PessoasProximas.vue';
+
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components: {PessoasProximas}
 }
 </script>
