@@ -38,14 +38,14 @@ export default {
   methods: {
     loadData: function () {
       this.$http
-      .get(`https://localhost:5001/api/WorkNet/ObterChat?codigoChat=${this.$route.query.codigo}`)
+      .get(`https://uberhack-backend.herokuapp.com/api/WorkNet/ObterChat?codigoChat=${this.$route.query.codigo}`)
       .then(response => (this.chat = response.data))
     },
     enviarMensagem(ev){
       console.log({ ev})
       ev.preventDefault();
       this.$http
-      .get(`https://localhost:5001/api/WorkNet/EnviarMensagem?usuarioId=${(this.$store.state.itens || { usuario: {} }).usuario.id}&chatId=${this.$route.query.codigo}&conteudo=${this.text}`)
+      .get(`https://uberhack-backend.herokuapp.com/api/WorkNet/EnviarMensagem?usuarioId=${(this.$store.state.itens || { usuario: {} }).usuario.id}&chatId=${this.$route.query.codigo}&conteudo=${this.text}`)
       .then(response => (this.text = ''))
       return false;
     }
