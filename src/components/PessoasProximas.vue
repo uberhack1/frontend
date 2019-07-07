@@ -1,22 +1,20 @@
 <template>
-<div>
-  <div class="peoples">
-    <div class="text-h5 title">Pessoas próximas a você</div>
-    <div class="row big-gutter mb_row">
-        <div v-for="x in 3" :key="x" class="people_conect">
-        <q-avatar size="100px" color="teal" text-color="white">
-            <img src="https://randomuser.me/api/portraits/men/24.jpg">
-        </q-avatar>
-        <div class="text-center text-bold name_people_conect">Eduardo Bonovolenta</div>
-        <div class="text-center place_job">Thoughtworks</div>
-        <q-btn class="btn_conect" color="secondary" label="Conectar" />
+  <div>
+    <div class="peoples">
+      <div class="text-h5 title">Pessoas próximas a você</div>
+      <div class="row big-gutter mb_row">
+        <div v-for="pessoa in pessoas" :key="pessoa.id" class="people_conect">
+          <q-avatar size="100px" color="teal" text-color="white">
+              <img :src="pessoa.foto">
+          </q-avatar>
+          <div class="text-center text-bold name_people_conect">{{ pessoa.nome }}</div>
+          <div class="text-center place_job">{{ pessoa.empresa }}</div>
+          <q-btn class="btn_conect" color="secondary" label="Conectar" />
+        </div>
       </div>
     </div>
   </div>
-  </div>
-</div>
 </template>
-
 <style>
 @font-face {
     font-family: 'Circular', sans-serif;
@@ -138,6 +136,7 @@ header {
 
 <script>
 export default {
-  name: 'PessoasProximas'
+  name: 'PessoasProximas',
+  props: ['pessoas']
 }
 </script>

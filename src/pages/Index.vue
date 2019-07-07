@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex">
-    <pessoas-proximas></pessoas-proximas>
+    <pessoas-proximas v-if="items.possiveisConexoes" :pessoas="items.possiveisConexoes"></pessoas-proximas>
     <grupos-sugeridos> </grupos-sugeridos>
   </q-page>
 </template>
@@ -16,24 +16,26 @@ export default {
   name: 'PageIndex',
   components: {PessoasProximas,
   GruposSugeridos},
-  data: {
-    items: [],
+  data: () => ({
+    items: {},
     interval: null,
-  },
+  }),
   methods: {
     loadData: function () {
       this.$http
-      .get(`https://localhost:5001/WorkNet/ObterUsuario?codigoUsuario=${localStorage.getItem('usuarioLogado') || 2}`)
-      .then(response => (this.items = response))
+      .get(`http://localhost:5000/api/WorkNet/ObterUsuario?codigoUsuario=${localStorage.getItem('usuarioLogado') || 2}`)
+      .then(response => {
+        this.items = response.data
+      })
     }
   },
   mounted: function () {
     this.loadData();
 
-     this.interval = setInterval(function () {
+     /*this.interval = setInterval(function () {
          this.loadData();
-       }.bind(this), 1000); 
-    },
+       }.bind(this), 1000); */
+  },
 
     beforeDestroy: function(){
     clearInterval(this.interval);
