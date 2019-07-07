@@ -15,6 +15,19 @@ export default function (/* { ssrContext } */) {
     modules: {
       // example
     },
+    state: {
+      itens: {}
+    },
+    mutations: {
+      setItens: (state, payload) => state.itens = payload
+    },
+    actions: {
+      loadData: async ({ commit }) => {
+        var response = await window.$http
+        .get(`http://localhost:5000/api/WorkNet/ObterUsuario?codigoUsuario=${localStorage.getItem('usuarioLogado') || 2}`);
+        commit('setItens', response.data)
+      }
+    },
 
     // enable strict mode (adds overhead!)
     // for dev mode only

@@ -22,6 +22,7 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
+      :width="350"
       content-class="menu-bg"
     >
       <sidebar></sidebar>

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 import axios from 'axios'
 
+window.$http = axios
 Vue.prototype.$http = axios
 
 Vue.use(VueRouter)
