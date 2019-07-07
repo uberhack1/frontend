@@ -13,10 +13,9 @@
         </q-btn>
 
         <q-toolbar-title>
-          Quasar App
+         <q-btn flat><img style="max-height:30px " src="https://files.slack.com/files-pri/TL8BFAX55-FL6AYUVCL/logo_weconnect_color.png" alt=""></q-btn> 
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 

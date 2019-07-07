@@ -9,7 +9,7 @@
           </q-avatar>
           <div class="text-center text-bold name_people_conect">{{ pessoa.nome }}</div>
           <div class="text-center place_job">{{ pessoa.empresa }}</div>
-          <q-btn class="btn_conect" color="secondary" label="Conectar" />
+          <q-btn @click="$router.replace('/chat?codigo=1')" class="btn_conect" color="secondary" label="Conectar" />
         </div>
       </div>
     </div>
