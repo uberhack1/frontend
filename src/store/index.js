@@ -16,7 +16,10 @@ export default function (/* { ssrContext } */) {
       // example
     },
     state: {
-      itens: {}
+      itens: {
+        usuario: {},
+        possiveisConexoes: []
+      }
     },
     mutations: {
       setItens: (state, payload) => state.itens = payload
