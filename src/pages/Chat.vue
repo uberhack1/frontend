@@ -1,6 +1,38 @@
 <template>
-  <div class="q-pa-md row justify-center">
-    <div style="width: 100%; max-width: 400px">
+  <div class="q-pa-md teste">
+    <div style="width: 100%; height: 100%; ">
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
       <q-chat-message
         name="me"
         avatar="https://cdn.quasar.dev/img/avatar3.jpg"
@@ -30,6 +62,15 @@
         text-color="white"
         bg-color="primary"
       />
+      <q-chat-message
+        name="Jane"
+        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
+        :text="['Did it work?']"
+        stamp="1 minutes ago"
+        size="8"
+        text-color="white"
+        bg-color="primary"
+      />
       <div class="q-pa-md">
         <q-input v-model="text" filled autogrow>
           <template v-slot:append>
@@ -46,4 +87,9 @@ export default {};
 </script>
 
 <style>
+.teste{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 </style>
