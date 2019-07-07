@@ -1,73 +1,19 @@
 <template>
   <div class="q-pa-md teste">
-    <div style="width: 100%; height: 100%; ">
-      <q-chat-message
+    <div v-for="mensagem in chat.mensagens" :key="mensagem.chatId" style="width: 100%; height: 100%; ">
+      <q-chat-message v-if="mensagem.usuario.id == ($store.state.itens || { usuario: {} }).usuario.id"
         name="me"
-        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-        :text="['hey, how are you?']"
-        stamp="7 minutes ago"
+        :avatar="mensagem.usuario.foto"
+        :text="[mensagem.conteudo]"
+        :stamp="mensagem.dataHora"
         sent
         bg-color="amber-7"
       />
-      <q-chat-message
-        name="me"
-        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-        :text="['hey, how are you?']"
-        stamp="7 minutes ago"
-        sent
-        bg-color="amber-7"
-      />
-      <q-chat-message
-        name="me"
-        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-        :text="['hey, how are you?']"
-        stamp="7 minutes ago"
-        sent
-        bg-color="amber-7"
-      />
-      <q-chat-message
-        name="me"
-        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-        :text="['hey, how are you?']"
-        stamp="7 minutes ago"
-        sent
-        bg-color="amber-7"
-      />
-      <q-chat-message
-        name="me"
-        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
-        :text="['hey, how are you?']"
-        stamp="7 minutes ago"
-        sent
-        bg-color="amber-7"
-      />
-      <q-chat-message
-        name="Jane"
-        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
-        :text="[
-          'doing fine, how r you?',
-          'I just feel like typing a really, really, REALY long message to annoy you...'
-        ]"
-        size="6"
-        stamp="4 minutes ago"
-        text-color="white"
-        bg-color="primary"
-      />
-      <q-chat-message
-        name="Jane"
-        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
-        :text="['Did it work?']"
-        stamp="1 minutes ago"
-        size="8"
-        text-color="white"
-        bg-color="primary"
-      />
-      <q-chat-message
-        name="Jane"
-        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
-        :text="['Did it work?']"
-        stamp="1 minutes ago"
-        size="8"
+      <q-chat-message v-else
+        :name="mensagem.usuario.nome"
+        :avatar="mensagem.usuario.foto"
+        :text="[mensagem.conteudo]"
+        :stamp="mensagem.dataHora"
         text-color="white"
         bg-color="primary"
       />
@@ -83,7 +29,30 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    chat: {},
+    interval: null,
+    text: ''
+  }),
+  methods: {
+    loadData: function () {
+      this.$http
+      .get(`https://localhost:5001/api/WorkNet/ObterChat?codigoChat=${this.$route.query.codigo}`)
+      .then(response => (this.chat = response.data))
+    }
+  },
+  mounted: function () {
+    this.loadData();
+     this.interval = setInterval(function () {
+         this.loadData();
+       }.bind(this), 1000); 
+    },
+
+    beforeDestroy: function(){
+    clearInterval(this.interval);
+  }
+};
 </script>
 
 <style>
