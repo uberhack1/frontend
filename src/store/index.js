@@ -27,7 +27,7 @@ export default function (/* { ssrContext } */) {
     actions: {
       loadData: async ({ commit }) => {
         var response = await window.$http
-        .get(`http://localhost:5000/api/WorkNet/ObterUsuario?codigoUsuario=${localStorage.getItem('usuarioLogado') || 2}`);
+        .get(`http://localhost:5000/api/WorkNet/ObterUsuario?codigoUsuario=${window.localStorage.getItem('usuarioLogado') || 2}`);
         commit('setItens', response.data)
       }
     },
