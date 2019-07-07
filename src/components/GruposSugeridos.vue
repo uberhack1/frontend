@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 class="q-pa-md titulo-componente">Grupos Sugeridos</h3>
-    <div class="row q-pa-md q-gutter-md">
-      <q-card flat bordered class="my-card col meu-card">
+   <div class="text-h5 title">Grupos sugeridos</div>
+    <div class="row q-pa-md q-gutter-md groups">
+      <q-card flat class="my-card col meu-card card_group">
         <q-card-section>
-          <div class="text-h6">Faculdade Pitágoras</div>
+          <div class="text-h6 title_group_place">Faculdade Pitágoras</div>
         </q-card-section>
 
         <q-card-section class="color-grey">
@@ -32,9 +32,9 @@
         <q-card-section class="color-teal">ENTRAR NO GRUPO →</q-card-section>
       </q-card>
 
-      <q-card flat bordered class="my-card col">
+      <q-card flat class="my-card col card_group">
         <q-card-section>
-          <div class="text-h6">Faculdade Pitágoras</div>
+          <div class="text-h6 title_group_place">Faculdade Pitágoras</div>
         </q-card-section>
 
         <q-card-section class="color-grey">
@@ -70,6 +70,20 @@ export default {};
 </script>
 
 <style lang="stylus">
+.groups {
+  padding: 0!important;
+}
+
+.card_group {
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1)!important;
+}
+
+.title_group_place {
+  font-weight: 700;
+  font-size: 1.5rem
+}
+
 .color-grey {
   color: $grey-7;
 }

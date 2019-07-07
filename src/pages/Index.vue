@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex">
     <pessoas-proximas></pessoas-proximas>
+    <grupos-sugeridos> </grupos-sugeridos>
   </q-page>
 </template>
 
@@ -9,9 +10,11 @@
 
 <script>
 import PessoasProximas from '../components/PessoasProximas.vue';
+import GruposSugeridos from '../components/GruposSugeridos.vue';
 
 export default {
   name: 'PageIndex',
-  components: {PessoasProximas}
+  components: {PessoasProximas,
+  GruposSugeridos}
 }
 </script>
