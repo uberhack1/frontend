@@ -18,7 +18,7 @@
         bg-color="primary"
       />
       <div class="q-pa-md">
-        <q-input v-model="text" filled autogrow>
+        <q-input v-on:keyup.enter="enviarMensagem()" v-model="text" filled autogrow>
           <template v-slot:append>
             <q-icon name="send" />
           </template>
@@ -39,6 +39,11 @@ export default {
     loadData: function () {
       this.$http
       .get(`https://localhost:5001/api/WorkNet/ObterChat?codigoChat=${this.$route.query.codigo}`)
+      .then(response => (this.chat = response.data))
+    },
+    enviarMensagem(){
+      this.$http
+      .get(`https://localhost:5001/api/WorkNet/EnviarMensagem?usuarioId=?${this.$route.query.codigo}?codigoChat=${this.$route.query.codigo}?conteudo=${this.text}`)
       .then(response => (this.chat = response.data))
     }
   },
