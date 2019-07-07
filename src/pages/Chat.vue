@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md teste">
     <div v-for="mensagem in chat.mensagens" :key="mensagem.chatId" style="width: 100%; height: 100%; ">
-      <q-chat-message v-if="mensagem.usuario.id == ($store.state.itens || { usuario: {} }).usuario.id"
+      <q-chat-message v-if="mensagem.usuarioId == ($store.state.itens || { usuario: {} }).usuario.id"
         name="me"
         :avatar="mensagem.usuario.foto"
         :text="[mensagem.conteudo]"
