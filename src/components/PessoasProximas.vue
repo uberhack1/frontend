@@ -3,7 +3,7 @@
   <div class="peoples">
     <div class="text-h5 title">Pessoas próximas a você</div>
     <div class="row big-gutter mb_row">
-        <div v-for="x in 4" :key="x" class="people_conect">
+        <div v-for="x in 3" :key="x" class="people_conect">
         <q-avatar size="100px" color="teal" text-color="white">
             <img src="https://randomuser.me/api/portraits/men/24.jpg">
         </q-avatar>
@@ -57,18 +57,43 @@ main {
 }
 
 .mb_row {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.peoples {
+  width: 100%!important;
+}
+
+@media(max-width: 1024px) {
+  .people_conect {
+    zoom: 60%;
+    margin: 0 0.5rem 0 0!important;
+  }
+
+  .groups {
+      flex-direction: column;
+  }
+
+  .btn_conect {
+    font-size: 1.1rem!important;
+  }
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
   color: #22685F;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 0.5rem;
+  width: 100%;
+  display: block;
 }
 
 header {
-  display: none;
+  display: ;
+  background: #22685f;
+  box-shadow: none!important;
 }
 
 .place_job {
@@ -77,7 +102,7 @@ header {
 }
 
 .people_conect {
-  margin: 0 1rem 0 0!important;
+  margin: 0 2rem 0 0;
   text-align: center;
   max-width: 150px;
 }
@@ -89,6 +114,7 @@ header {
   padding: 0rem 1rem!important;
   width: 100%;
   margin-top: 0.5rem;
+  font-size: .7rem;
 }
 
 .btn_conect:hover {

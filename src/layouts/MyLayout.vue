@@ -55,6 +55,6 @@ export default {
 
 <style>
 .menu-bg {
-  background-image: linear-gradient(to bottom, #86dbe1, #76c0c6, #66a5ab, #568c90, #477377);
+  background-image: linear-gradient(to right bottom, #8CE4EB, #467276);
 }
 </style>
