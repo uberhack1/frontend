@@ -22,8 +22,7 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-2"
+      content-class="menu-bg"
     >
       <q-list>
         <q-item-label header>Essential Links</q-item-label>
@@ -98,4 +97,7 @@ export default {
 </script>
 
 <style>
+.menu-bg {
+  background-image: linear-gradient(to bottom, #86dbe1, #76c0c6, #66a5ab, #568c90, #477377);
+}
 </style>
