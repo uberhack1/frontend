@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
@@ -67,6 +69,14 @@ module.exports = function (ctx) {
       // analyze: true,
       // extractCSS: false,
       extendWebpack (cfg) {
+        cfg.plugins.push( 
+          new CopyWebpackPlugin(
+              [        {
+                from: 'src/onesignal',
+                to: cfg.output.path
+              }]
+           ) 
+        );
         cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
