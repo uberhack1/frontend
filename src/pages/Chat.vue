@@ -1,6 +1,6 @@
 <template>
-  <div class="q-pa-md row justify-center">
-    <div style="width: 100%; max-width: 400px">
+  <div class="q-pa-md q-gutter-md row justify-center vertical-bottom">
+    <div style="width: 100%; height: 100%; ">
       <q-chat-message
         name="me"
         avatar="https://cdn.quasar.dev/img/avatar3.jpg"
